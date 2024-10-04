@@ -1,0 +1,23 @@
+
+  <div class="col-4 py-2 mt-5 " style="width: 18rem;">
+    <div class="card shadow">
+      <div class="card-body">
+        <!--trunca el texto del titulo de la card en una sola linea  -->
+        <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        <%= movie.name %></h5>
+        <%= link_to "Show this movie", movie, class: "btn btn-primary" %>
+      </div>
+      <div>
+        <% if action_name == "show" %>
+          <div class="d-flex gap-2 flex-column mt-3 px-4 py-3">
+            <%= link_to "Edit this movie", edit_movie_path(@movie), class: "btn btn-primary btn-sm" %>
+            <%= link_to "Back to movie", movies_path, class: "btn btn-primary btn-sm" %>
+            <%= button_to "Destroy this movie", @client, method: :delete, class:"btn btn-danger btn-sm " %>
+          </div>
+        <% else %>  
+          <td><%#= link_to "Edit this client", edit_movie_path(@movie),class:"btn btn-warning btn-sm" %></td>
+          <td><%#= link_to "Destroy this client", @client, method: :delete, class:"btn btn-danger btn-sm " %></td>
+        <% end %> 
+      </div>  
+    </div>
+  </div>

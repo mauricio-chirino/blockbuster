@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container shadow mt-5 my-5">
+  <h1>Movies</h1>
+
+
+
+  <%= link_to '<i class="fa-solid fa-plus"></i>'.html_safe, new_movie_path %>
+
+  <div id="movies">
+    <div class="row justify-content-center">
+      <% @movies.each do |movie| %>
+        <%= render movie %>
+      <% end %>
+    </div>
+  </div>
+</div>

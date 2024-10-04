@@ -1,0 +1,91 @@
+<%= form_with(model: movie) do |form| %>
+  <% if movie.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%
+=begin%>
+ <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :client_id, style: "display: block" %>
+    <%= form.select :client_id, options_for_select(@clients) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+
+  </div> 
+<%
+=end%>
+
+
+
+
+
+
+<div class="col-4 py-2 mt-5 " style="width: 18rem;">
+    <div class="card shadow">
+      <div class="card-body">
+        <h5 class="card-title">Edit Movie</h5>
+
+ <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :client_id, style: "display: block" %>
+    <%= form.select :client_id, options_for_select(@clients) %>
+  </div>
+
+  <div class="d-flex gap-2 flex-column mt-3 px-4">
+    <%= form.submit class: "btn btn-primary btn-sm"%>
+
+
+
+
+      <% if action_name == "edit" %>
+            <%= link_to "Show this movie", edit_movie_path(@movie), class: "btn btn-primary btn-sm" %>
+            <%= link_to "Back to movie", movies_path, class: "btn btn-primary btn-sm" %>
+
+      <% else %>      
+
+<%= link_to "Back to movie", movies_path, class: "btn btn-primary btn-sm" %>
+
+      <% end %>
+
+
+
+  </div>
+
+
+      </div>
+ 
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% end %>
